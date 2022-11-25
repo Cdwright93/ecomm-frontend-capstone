@@ -76,7 +76,7 @@ const NavBar = (props) => {
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link className="nav-link" to="/logout">
+								<Link className="nav-link" onClick={logout} >
 									Logout
 								</Link>
 							</li>

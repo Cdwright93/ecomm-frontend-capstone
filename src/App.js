@@ -19,30 +19,11 @@ import NavBar from "./Components/NavBar";
 const urlEndpoint = "http://localhost:4000";
 
 function App() {
-	const [user, setUser] = useState(null);
-	const [loading, setLoading] = useState(true);
-	const { login, logout, register, token, userId } = useAuth();
-
-	useEffect(() => {
-		if (token) {
-			fetch(`${urlEndpoint}/users/${userId}`, {
-				headers: {
-					Authorization: `Bearer ${token}`,
-				},
-			})
-				.then((res) => res.json())
-				.then((data) => {
-					setUser(data);
-					setLoading(false);
-				});
-		} else {
-			setLoading(false);
-		}
-	}, [token, userId]);
+	  const { user, login, logout, register, verifyAdmin } = useAuth();
 
 	return (
 		<div className="App-header">
-			<NavBar user={user} logout={logout} />
+			<NavBar user={user} logout={logout} verifyAdmin={verifyAdmin} />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/register" element={<Register register={register} />} />

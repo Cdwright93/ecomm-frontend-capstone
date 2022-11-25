@@ -26,6 +26,18 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	// call this function when you want to authenticate the user
+	// const login = async (username, password, redirectLocation = "/") => {
+	// 	setIsAuthLoading(true);
+	// 	const loginResult = await loginUser(username, password);
+	// 	if (loginResult.success) {
+	// 		setUserToken(loginResult.token);
+	// 		navigate(redirectLocation, { replace: true });
+	// 	}
+	// 	setIsAuthLoading(false);
+	// 	return loginResult;
+	// };
+
+	//writing a new login function to grab the users email adress and fetch the user info from the database
 	const login = async (username, password, redirectLocation = "/") => {
 		setIsAuthLoading(true);
 		const loginResult = await loginUser(username, password);
@@ -34,6 +46,7 @@ export const AuthProvider = ({ children }) => {
 			navigate(redirectLocation, { replace: true });
 		}
 		setIsAuthLoading(false);
+		console.log(loginResult.responseJSON);
 		return loginResult;
 	};
 
