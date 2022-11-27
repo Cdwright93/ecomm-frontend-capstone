@@ -16,12 +16,14 @@ import Order from "./Pages/OrderPage.js";
 import NotFound from "./Pages/NotFound";
 import NavBar from "./Components/NavBar";
 
-const urlEndpoint = "http://localhost:4000";
+;
 
 function App() {
 	  const { user, login, logout, register, verifyAdmin } = useAuth();
 
-	return (
+
+
+		return (
 		<div className="App-header">
 			<NavBar user={user} logout={logout} verifyAdmin={verifyAdmin} />
 			<Routes>

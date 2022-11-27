@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT;
 const AuthContext = createContext();
 
@@ -8,83 +9,88 @@ const AuthContext = createContext();
 */
 export const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
-	const [isAuthLoading, setIsAuthLoading] = useState(false);
-
-	useEffect(() => {
-		const userToken = getUserToken();
-		setUser(userToken);
-	}, [isAuthLoading]);
-
+	const [loading, setLoading] = useState(true);
 	const navigate = useNavigate();
 
-	// call this function when you want to register the user
-	const register = async (username, password) => {
-		setIsAuthLoading(true);
-		const registerResult = await registerUser(username, password);
-		setIsAuthLoading(false);
-		return registerResult;
-	};
-
-	// call this function when you want to authenticate the user
-	// const login = async (username, password, redirectLocation = "/") => {
-	// 	setIsAuthLoading(true);
-	// 	const loginResult = await loginUser(username, password);
-	// 	if (loginResult.success) {
-	// 		setUserToken(loginResult.token);
-	// 		navigate(redirectLocation, { replace: true });
-	// 	}
-	// 	setIsAuthLoading(false);
-	// 	return loginResult;
-	// };
-
-	//writing a new login function to grab the users email adress and fetch the user info from the database
-	const login = async (username, password, redirectLocation = "/") => {
-		setIsAuthLoading(true);
-		const loginResult = await loginUser(username, password);
-		if (loginResult.success) {
-			setUserToken(loginResult.token);
-			navigate(redirectLocation, { replace: true });
+	useEffect(() => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			const decodedToken = jwt_decode(token);
+			if (decodedToken.exp * 1000 < Date.now()) {
+				localStorage.removeItem("token");
+			} else {
+				setUser(decodedToken);
+			}
 		}
-		setIsAuthLoading(false);
-		console.log(loginResult.responseJSON);
-		return loginResult;
-	};
+		setLoading(false);
+	}, []);
 
-	// call this function to sign out logged in user
-	const logout = async (redirectLocation = "/") => {
-		setIsAuthLoading(true);
-		await removeUserToken(); // This has to be awaited for the useEffect to work
-		setIsAuthLoading(false);
-		navigate(redirectLocation, { replace: true });
-	};
-
-	const verifyAdmin = async () => {
-		setIsAuthLoading(true);
-		const isAdminResult = await validateAdmin(user);
-		setIsAuthLoading(false);
-		if (isAdminResult.success) {
-			return isAdminResult.isAdmin;
+	const login = async (email, password) => {
+		const response = await fetch(`${urlEndpoint}/users/login`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ email, password }),
+		});
+		const data = await response.json();
+		if (data.token) {
+			localStorage.setItem("token", data.token);
+			setUser(jwt_decode(data.token));
+			navigate("/");
+		} else {
+			return data;
 		}
-		return false;
 	};
 
-	/*  
-    https://reactjs.org/docs/hooks-reference.html#usememo
-    Memoization is essentially caching. The variable value will only be recalculated if the 
-    variables in the watched array change.
-  */
+	const getUserDetails = async (id) => {
+		const response = await fetch(`${urlEndpoint}/users/${id}`);
+		const data = await response.json();
+		return data;
+	}
 
-	const value = useMemo(
-		() => ({
-			user,
-			verifyAdmin,
-			login,
-			logout,
-			register,
-		}),
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[user]
-	);
+
+	const register = async (name, email, password) => {
+		const response = await fetch(`${urlEndpoint}/users/register`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ name, email
+			, password }),
+		});
+		const data = await response.json();
+		if (data.token) {
+			localStorage.setItem("token", data.token);
+			setUser(jwt_decode(data.token));
+			navigate("/");
+		} else {
+			return data;
+		}
+	};
+
+	const logout = () => {
+		localStorage.removeItem("token");
+		setUser(null);
+		navigate("/login");
+	};
+
+	const verifyAdmin = () => {
+		if (user && user.isAdmin) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
+	const value = useMemo(() => {
+		return { user, login, logout, register, verifyAdmin, };
+	}, [user]);
+
+	if (loading) {
+		return <h1>Loading...</h1>;
+	}
+	
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
@@ -92,66 +98,6 @@ export const useAuth = () => {
 	return useContext(AuthContext);
 };
 
-const registerUser = async (email, password) => {
-	const url = `${urlEndpoint}/users/register`;
-	const response = await fetch(url, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({
-			email: email,
-			password: password,
-		}),
-	});
-	const responseJSON = await response.json();
-	return responseJSON;
-};
 
-const loginUser = async (email, password) => {
-	const url = `${urlEndpoint}/users/login`;
-	const response = await fetch(url, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({
-			email: email,
-			password: password,
-		}),
-	});
-	const responseJSON = await response.json();
-	return responseJSON;
-};
 
-const validateAdmin = async (userToken) => {
-	const url = `${urlEndpoint}/users/message`;
-	const response = await fetch(url, {
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json",
-			[process.env.REACT_APP_TOKEN_HEADER_KEY]: userToken,
-		},
-	});
-	const responseJSON = await response.json();
-	return responseJSON;
-};
-
-const setUserToken = (token) => {
-	localStorage.setItem(
-		process.env.REACT_APP_TOKEN_HEADER_KEY,
-		JSON.stringify(token)
-	);
-};
-
-const removeUserToken = () => {
-	localStorage.removeItem(process.env.REACT_APP_TOKEN_HEADER_KEY);
-	return true;
-};
-
-const getUserToken = () => {
-	return JSON.parse(
-		localStorage.getItem(process.env.REACT_APP_TOKEN_HEADER_KEY)
-	);
-};
 export default AuthProvider;
