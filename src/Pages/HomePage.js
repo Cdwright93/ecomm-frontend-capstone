@@ -5,7 +5,7 @@ import AuthProvider from "../Hooks/Auth.js";
 const Home = (props) => (
 	<div>
 		<h3>Home Page</h3>
-		<p>
+		<p className="page-p">
 			Welcome to the home page. This is a protected route. You must be logged in
 			to view this page.
 		</p>

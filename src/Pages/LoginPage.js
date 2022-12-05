@@ -27,11 +27,11 @@ const Login = (props) => {
 	return (
 		<div>
 			<h3>Login page</h3>
-			<p>
+			<p className="page-p">
 				Welcome to the login page. This is where products would go....IF I HAD
 				ANY.
 			</p>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="login-form">
 				<div>
 					<label htmlFor="email">Email</label>
 					<input
@@ -50,7 +50,8 @@ const Login = (props) => {
 						onChange={(e) => setPassword(e.target.value)}
 					/>
 				</div>
-				<button type="submit">Login</button>
+				<span className="error">{error}</span>
+				<button classname="login-button"type="submit">Login</button>
 			</form>
 		</div>
 	);

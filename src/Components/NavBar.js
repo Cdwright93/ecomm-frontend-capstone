@@ -21,24 +21,24 @@ const NavBar = (props) => {
       <div className="offcanvas-body">
         <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li className="nav-item">
-            <Link to={'/'}>  Home
+            <Link to={'/'} className='nav-item'>  Home
 			</Link>
           </li>
           <li className="nav-item">
 			{user ? (
-				<Link to={'/profile'}>  Profile
+				<Link to={'/profile'} className='nav-item'>  Profile
 				</Link>
 			) : (
-				<Link to={'/login'}>  Login
+				<Link to={'/login'} className='nav-item'>  Login
 				</Link>
 			)}
       </li>
       <li className="nav-item">
       {user ? (
-        <Link to={'/'} onClick={logout}>  Logout
+        <Link to={'/'} onClick={logout} className='nav-item'>  Logout
         </Link>
       ) : (
-        <Link to={'/register'}>  Register
+        <Link to={'/register'} className='nav-item'>  Register
         </Link>
       )}
       </li>
@@ -47,7 +47,7 @@ const NavBar = (props) => {
               Dropdown
             </a>
             <ul className="dropdown-menu dropdown-menu-dark">
-              <li><a className="dropdown-item" href="#">Action</a></li>
+              <li><Link className="dropdown-item" to={'/products'}>Our Products</Link></li>
               <li><a className="dropdown-item" href="#">Another action</a></li>
               <li>
                 <hr className="dropdown-divider"/>

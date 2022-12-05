@@ -5,7 +5,7 @@ import AuthProvider from "../Hooks/Auth.js";
 const Product = (props) => (
 	<div>
 		<h3>Product page</h3>
-		<p>
+		<p className="page-p">
 			Welcome to the product page. This is where products would go....IF I HAD
 			ANY.
 		</p>
