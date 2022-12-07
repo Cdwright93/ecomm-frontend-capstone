@@ -47,17 +47,17 @@ export const AuthProvider = ({ children }) => {
 		const response = await fetch(`${urlEndpoint}/users/${id}`);
 		const data = await response.json();
 		return data;
-	}
+	};
 
 
-	const register = async (name, email, password) => {
+	const register = async (email, password, firstname, lastname, ) => {
 		const response = await fetch(`${urlEndpoint}/users/register`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ name, email
-			, password }),
+			body: JSON.stringify({ email
+			, password, firstname, lastname }),
 		});
 		const data = await response.json();
 		if (data.token) {
@@ -83,16 +83,28 @@ export const AuthProvider = ({ children }) => {
 		}
 	};
 
-	const value = useMemo(() => {
-		return { user, login, logout, register, verifyAdmin, };
-	}, [user]);
+	const value = useMemo(
+		() => ({
+			user,
+			login,
+			register,
+			logout,
+			verifyAdmin,
+			getUserDetails,
+		}),
+		[user]
+	);
 
-	if (loading) {
-		return <h1>Loading...</h1>;
-	}
-	
-	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+	return (
+		<AuthContext.Provider value={value}>
+			{!loading && children}
+			<div className="loading">
+				{loading && <h1>Loading...</h1>}
+			</div>
+		</AuthContext.Provider>
+	);
 };
+
 
 export const useAuth = () => {
 	return useContext(AuthContext);

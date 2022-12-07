@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useAuth } from "./Hooks/Auth";
+import AuthProvider, { useAuth } from "./Hooks/Auth";
 import { useRef, useState, useEffect } from "react";
 import Home from "./Pages/HomePage.js";
 import Products from "./Pages/ProductsPage.js";
@@ -19,18 +19,15 @@ import NavBar from "./Components/NavBar";
 ;
 
 function App() {
-	  const { user, login, logout, register, verifyAdmin } = useAuth();
-
-
-
 		return (
 		<div className="App-header">
-			<NavBar user={user} logout={logout} verifyAdmin={verifyAdmin} />
+			<AuthProvider>
+			<NavBar />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/register" element={<Register register={register} />} />
-				<Route path="/login" element={<Login login={login} />} />
-				<Route path="/profile" element={<Profile user={user} />} />
+				<Route path="/" element={<Home />}/>
+				<Route path="/register" element={<Register />} />
+				<Route path="/login" element={<Login/>} />
+				<Route path="/profile" element={<Profile />} />
 				<Route path="/products" element={<Products />} />
 				<Route path="/products/:id" element={<Product />} />
 				<Route path="/cart" element={<Cart />} />
@@ -40,6 +37,7 @@ function App() {
 				<Route path="/order" element={<Order />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
+			</AuthProvider>
 		</div>
 	);
 }
