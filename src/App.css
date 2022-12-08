@@ -93,3 +93,13 @@
   justify-self: start;
   min-width: 100%;
 }
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid white;
+  margin: 1rem;
+  max-width: calc(100% / 2 - 5rem);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
