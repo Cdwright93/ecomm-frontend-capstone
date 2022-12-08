@@ -23,10 +23,10 @@ const Home = (props) => {
 
 	return (
 		<div className="App-header">
-			<h3>Home</h3>
+			<h1 className="page-h1">Home</h1>
 			{user ? (
 				<div>
-					<h2>Welcome {user.userdata.firstname}</h2>
+					<p className="page-p">Welcome {user.userdata.firstname}</p>
 					<button onClick={() => navigate("/profile")}>Profile</button>
 				</div>
 			) : (

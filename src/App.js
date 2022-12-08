@@ -19,6 +19,16 @@ import NavBar from "./Components/NavBar";
 ;
 
 function App() {
+	//writing a hook that gets the products from the server
+	//this is a subscription ecommerce site so the products will be updated frequently
+	const [products, setProducts] = useState([]);
+	const [cart, setCart] = useState([]);
+	const [cartTotal, setCartTotal] = useState(0);
+	const [cartCount, setCartCount] = useState(0);
+	const [cartItems, setCartItems] = useState([]);
+	const [cartItemsCount, setCartItemsCount] = useState(0);
+	const [cartItemsTotal, setCartItemsTotal] = useState(0);
+	
 		return (
 		<div className="App-header">
 			<AuthProvider>

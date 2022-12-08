@@ -4,7 +4,9 @@ import AuthProvider from "../Hooks/Auth.js";
 
 const Profile = (props) => (
 	<div>
-		<h3>Profile page</h3>
+		<div>
+			<h1 className="page-h1">Profile</h1>
+		</div>
 		<p className="page-p">
 			Welcome to the profile page. This is where profiles would go....IF I HAD
 			ANY.
