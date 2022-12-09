@@ -1,6 +1,7 @@
 import "../App.css";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContent } from "../Hooks/Content";
 import { useAuth } from "../Hooks/Auth";
 
 const Register = (props) => {

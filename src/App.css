@@ -48,51 +48,23 @@
   color: yellow;
   text-shadow: 0 0 8px yellow;
 }
-.page-p{
-  padding: 1rem;
-  font-size: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 100%;
-}
-.login-form {
-  margin: 0 3rem;
-  padding: 1rem;
-  font-size: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 100%;
-}
-.login-form input {
-  margin: 0 1rem;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 100%;
-}
-.login-form button {
-  margin:2rem;
-  padding: 0.3rem;
-  font-size: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  min-width: 40%;
-  border-radius: 3px;
-  background-color: rgb(0, 0, 0);
-  color: white;
+.page-p {
+	font-size: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	min-width: 100%;
+	text-align: center;
+  margin: 0;
 }
 .page-h1 {
-  padding: 1rem;
-  position : absolute;
-  z-index: 0;
-  top: 4rem;
-  left: 0;
-  font-size: calc(3rem + 1vmin);
+	padding: 1rem;
+	position: absolute;
+	z-index: 0;
+	top: 1.4rem;
+	left: 0;
+	font-size: calc(10rem + 1vmin);
+	color: orchid;
 }
 .product-card {
   display: flex;
@@ -164,7 +136,6 @@
   text-align: center;
   text-shadow: 0 0 2px rgb(0, 0, 0);
 }
-
 .product-p {
   margin: 0.5rem;
   padding: 0.3rem;
@@ -190,6 +161,155 @@
   );
   border: 2px solid rgb(174, 0, 116);
   box-shadow: 0 0 10px rgb(174, 0, 116);
-  transform: scale(1.05);
-  transition: all 0.5s ease;
+  transform: scale(1.25);
+  transition: all 0.5s ease-in-out;
+}
+
+.pageheader {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	min-width: 100%;
+	min-height: 100%;
+	background-image: linear-gradient( 140deg, hsl(240deg 56% 23%) 0%, hsl(276deg 53% 40%) 27%, hsl(332deg 93% 56%) 88%, hsl(40deg 100% 50%) 100% );
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 0;
+	top: -17px;
+	left: 0;
+	margin: 0;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 216px;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0 0 0;
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.login-form {
+	display: contents;
+	flex-direction: column;
+	text-align: center;
+	align-content: center;
+  width: 100%;
+	align-self: center;
+}
+.login-form input {
+  padding: 0.3rem;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 40%;
+  border-radius: 3px;
+  background-color: inherit;
+  color: white;
+  border: 1px solid inherit;
+}
+.login-form button {
+  margin: .4rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 40%;
+  border-radius: 3px;
+  background-color: inherit;
+  color: white;
+  border: 1px solid inherit;
+}
+.login-box {
+	margin: 0 3rem;
+	padding: 1rem;
+	font-size: 1.5rem;
+	display: flex;
+	width: 35%;
+	flex-direction: column;
+	align-items: center;
+	padding: 21rem;
+	height: max-content;
+}
+.w-sym {
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  color: peachpuff;
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+}
+.home-header {
+	font-size: calc(1.3rem + 1vmin);
+	text-shadow: 0 0 5px rgb(255, 234, 138);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 100%;
+	min-height: 100%;
+	background-image: linear-gradient( 140deg, hsl(240deg 56% 23%) 0%, hsl(276deg 53% 40%) 27%, hsl(332deg 93% 56%) 88%, hsl(40deg 100% 50%) 100% );
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	position: relative;
+	z-index: 0;
+	top: 27px;
+	left: 0;
+	margin: 0;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding: 276px;
+	border-radius: 1rem;
+}
+.page-h3 {
+  font-size: calc(2.3rem + 1vmin);
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  top: -10rem;
+}
+.home-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 0;
+  width: 85%;
+}
+.home-button {
+  margin: 0.5rem;
+  padding: 0.3rem;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 30%;
+  min-height: 3rem;
+  font-size: calc(1rem + .3vmin);
+  color: peachpuff;
+  border-radius: 3px;
+  background-color: inherit;
+  color: white;
+  border: 1px solid inherit;
+  position: relative;
+  z-index: 1;
+  bottom: -10rem;
 }

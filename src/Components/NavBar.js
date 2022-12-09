@@ -1,15 +1,17 @@
 import { Outlet, Link } from "react-router-dom";
 import { useAuth } from "../Hooks/Auth";
 import "../App.css";
+import OOMlogo from "./OOMlogo.png"
 
 const NavBar = (props) => {
 	const { user, logout } = useAuth();
-
 	return (
 		<div className="navbar">
-<nav className="navbar navbar-dark bg-dark fixed-top">
+  <nav className="navbar fixed-top">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">Offcanvas dark navbar</a>
+    <a className="navbar-brand" href="/"> 
+    <img src={OOMlogo} alt="OOMlogo" width="200" height="80" className="d-inline-block align-text-top"/>
+    </a>
     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -56,10 +58,6 @@ const NavBar = (props) => {
             </ul>
           </li>
         </ul>
-        <form className="d-flex mt-3" role="search">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 import "../App.css";
 import { useState, useRef } from "react";
-import AuthProvider from "../Hooks/Auth.js";
+import { useNavigate } from "react-router-dom";
+import { useContent } from "../Hooks/Content";
+import { useAuth } from "../Hooks/Auth";
 
 const Shipping = (props) => (
 	<div>

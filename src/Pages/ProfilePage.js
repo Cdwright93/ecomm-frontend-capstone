@@ -1,9 +1,11 @@
 import "../App.css";
 import { useState, useRef } from "react";
-import AuthProvider from "../Hooks/Auth.js";
+import { useNavigate } from "react-router-dom";
+import { useContent } from "../Hooks/Content";
+import { useAuth } from "../Hooks/Auth";
 
 const Profile = (props) => (
-	<div>
+	<div className="pageheader">
 		<div>
 			<h1 className="page-h1">Profile</h1>
 		</div>

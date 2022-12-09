@@ -1,15 +1,25 @@
-import { useState } from "react";
+import "../App.css";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContent } from "../Hooks/Content";
 import { useAuth } from "../Hooks/Auth";
 
-
 const Login = (props) => {
+	const weirdSymbolsFromTheInternetThatIFound = "⩠⩛⨇⩗⪲⩾⋘⋙⋙⩞⪼⪻⪺⫷";
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [loading, setLoading] = useState(false);
 	const { login } = useAuth();
 	const navigate = useNavigate();
+
+	const randomizeWeirdSymbols = (count) => {
+		let randomWeirdSymbols = "";
+		for (let i = 0; i < count; i++) {
+			randomWeirdSymbols += weirdSymbolsFromTheInternetThatIFound[Math.floor(Math.random() * weirdSymbolsFromTheInternetThatIFound.length)];
+		}
+		return randomWeirdSymbols;
+	}
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -25,34 +35,34 @@ const Login = (props) => {
 	}
 
 	return (
-		<div>
-			<h3>Login page</h3>
-			<p className="page-p">
-				Welcome to the login page. This is where products would go....IF I HAD
-				ANY.
-			</p>
-			<form onSubmit={handleSubmit} className="login-form">
-				<div>
-					<label htmlFor="email">Email</label>
-					<input
-						type="email"
-						id="email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
+		<div className="pageheader">
+			<div className='login-box'>
+				<h3 className="page-h1">Login</h3>
+			<form onSubmit={handleSubmit}className='login-form'>
+				<input
+					type="email"
+					placeholder="Email"
+					value={email}
+					onChange={(e) => setEmail(e.target.value)}
 					/>
-				</div>
-				<div>
-					<label htmlFor="password">Password</label>	
-					<input	
-						type="password"
-						id="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</div>
-				<span className="error">{error}</span>
-				<button classname="login-button"type="submit">Login</button>
+				<p className="w-sym 1">
+					{randomizeWeirdSymbols(7)}
+					</p>
+				<input
+					type="password"
+					placeholder="Password"
+					value={password}
+					onChange={(e) => setPassword(e.target.value)}
+				/>
+				<p className="w-sym 2">
+					{randomizeWeirdSymbols(3)}
+				</p>
+				<button type="submit" disabled={loading}>
+					Login
+				</button>
+				{error && <p>{error}</p>}
 			</form>
+			</div>
 		</div>
 	);
 }

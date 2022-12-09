@@ -2,14 +2,28 @@ import "../App.css";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../Hooks/Content";
+import { useAuth } from "../Hooks/Auth";
 
 const Products = (props) => {
 	const navigate = useNavigate();
 	const { products } = useContent();
 	return (
-		<div className="App-header">
+		<div className="pageheader">
 			<div>
 			<h1 className="page-h1">Products</h1>
+			</div>
+			<div className="page-ipsum">
+				<p className="page-p">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+					ultricies, nisl nec ultricies lacinia, nisl nisl aliquet
+					ligula, nec aliquet nisl nisl nec nisl. Sed ultricies, nisl
+					nec ultricies lacinia, nisl nisl aliquet ligula, nec aliquet
+					nisl nisl nec nisl. Sed ultricies, nisl nec ultricies
+					lacinia, nisl nisl aliquet ligula, nec aliquet nisl nisl nec
+					nisl. Sed ultricies, nisl nec ultricies lacinia, nisl nisl
+					aliquet ligula, nec aliquet nisl nisl nec nisl. Sed
+					ultricies, nisl nec ultricies lacinia, nisl nisl aliquet
+					</p>
 			</div>
 			{products.map((product) => (
 				<div key={product._id} id={product._id} className="product-card">

@@ -18,6 +18,7 @@ import NavBar from "./Components/NavBar";
 import ContentProvider, {useContent} from "./Hooks/Content"
 ;
 
+
 function App() {
 		return (
 		<div className="App-header">
@@ -27,7 +28,7 @@ function App() {
 						<Routes>
 							<Route path="/" element={<Home />}/>
 							<Route path="/register" element={<Register />} />
-							<Route path="/login" element={<Login/>} />
+							<Route path="/login" element={<Login />} weirdSymbolsFromTheInternetThatIFound />
 							<Route path="/profile" element={<Profile />} />
 							<Route path="/products" element={<Products />} />
 							<Route path="/products/:id" element={<Product />} />
