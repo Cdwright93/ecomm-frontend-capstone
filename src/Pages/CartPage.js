@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContent } from "../Hooks/Content";
 import { useAuth } from "../Hooks/Auth";
-
+ 
 const Cart = (props) => (
 	<div className="pageheader">
 		<h1 classname="page-h1">Cart Page</h1>

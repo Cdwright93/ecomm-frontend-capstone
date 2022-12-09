@@ -57,8 +57,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac bibendum qu
 					</div>
 				) : (
 					<div className="home-header">
-						<h1 className="page-h3">Welcome!</h1>
-					</div>
+					<h3 className="page-h3">Welcome!</h3>
+						<p className="w-sym">
+							{randomizeWeirdSymbols(26)}
+						</p>
+						<p className="page-p">
+						Lorem Ipsum
+"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac bibendum quam, ac fringilla mauris. Donec molestie facilisis neque, non pellentesque lacus elementum ut. Donec condimentum in nisl in interdum. Sed non purus ut lacus facilisis egestas. Fusce at vulputate enim. Mauris vel facilisis lacus. Mauris congue, lorem at ullamcorper posuere, tellus nisl auctor metus, a auctor justo augue semper velit. Suspendisse tincidunt convallis pellentesque. Aenean eu eleifend nunc. Suspendisse cursus nisi ipsum, ac vulputate turpis mattis sit amet. Duis commodo nec quam nec porttitor. Nulla mollis leo dui, vel gravida arcu blandit nec. Cras eleifend posuere lorem, sed finibus sapien efficitur ut. Quisque condimentum posuere facilisis. Nunc tempus viverra nunc, et aliquam libero. Aliquam venenatis dui at aliquam vehicula.
+						</p>
+							<p className="w-sym">
+						{randomizeWeirdSymbols(22)}
+							</p>
+								<div className="home-buttons">
+									<button className="home-button"onClick={() => navigate("/register")}>Sign up here!</button>
+									<button className="home-button"onClick={() => navigate("/products")}>Check out our products!</button>
+						</div>
+				</div>
 				)}
 
 			</div>

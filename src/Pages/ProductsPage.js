@@ -25,6 +25,7 @@ const Products = (props) => {
 					ultricies, nisl nec ultricies lacinia, nisl nisl aliquet
 					</p>
 			</div>
+			<div className="product-wrapper">
 			{products.map((product) => (
 				<div key={product._id} id={product._id} className="product-card">
 					<p className="product-title">{product.name}</p>
@@ -36,6 +37,7 @@ const Products = (props) => {
 					</button>
 				</div>
 			))}
+			</div>
 		</div>
 	);
 };

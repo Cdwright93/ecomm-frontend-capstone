@@ -28,48 +28,76 @@ const Register = (props) => {
 	}
 
 	return (
-		<div>
-			<h3>Register page</h3>
-			<p className="page-p">
-				Welcome to the register page. This is where products would go....IF I HAD
-				ANY.
-				</p>
-				<form onSubmit={handleSubmit} className="register-form">
-					<div>
-						<label htmlFor="email">Email | </label>
-						<input
-							type="email"
-							id="email"
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-						/>
+		<div className="pageheader">
+			<h1 className="page-h1">Register</h1>
+		<div className="container">
+			<div className="row">
+				<div className="col-md-6 offset-md-3">
+					<div className="card">
+						<div className="card-header">
+							<h3 className="regi-h3">Register</h3>
 						</div>
-						<div>
-							<label htmlFor="password">Password |</label>
-							<input
-								type="password"
-								id="password"
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-							</div>
-							<div>
-								<label htmlFor="firstname" id="firstname">
-									First Name | 
-								</label>
-								<input type="text" id="firstname" value={firstname} onChange={(e) => setFirstName(e.target.value)}/>
-							</div>
-							<div>
-								<label htmlFor="firstname" id="firstname">
-									Last Name | 
-								</label>
-								<input type="text" id="lastname" value={lastname} onChange={(e) => setLastName(e.target.value)}/>
-							</div>
-							<span className="error">{error}</span>
-							<button className="register-button" type="submit">Register</button>
+						<div className="card-body">
+							{error && <div className="alert alert-danger">{error}</div>}
+							<form onSubmit={handleSubmit}>
+								<div className="form-group">
+									<label htmlFor="email" className="reg-lbl">Email</label>
+									<input
+										type="email"
+										className="form-control"
+										id="email"
+										placeholder="Enter email"
+										value={email}
+										onChange={(e) => setEmail(e.target.value)}
+									/>
+								</div>
+								<div className="form-group">
+									<label htmlFor="password" className="reg-lbl">Password</label>
+									<input
+										type="password"
+										className="form-control"
+										id="password"
+										placeholder="Password"
+										value={password}
+										onChange={(e) => setPassword(e.target.value)}
+									/>
+								</div>
+								<div className="form-group">
+									<label htmlFor="firstname"className="reg-lbl">First Name</label>
+									<input
+										type="text"
+										className="form-control"
+										id="firstname"
+										placeholder="First Name"
+										value={firstname}
+										onChange={(e) => setFirstName(e.target.value)}
+									/>
+								</div>
+								<div className="form-group">
+									<label htmlFor="lastname" className="reg-lbl">Last Name</label>
+									<input
+										type="text"
+										className="form-control"
+										id="lastname"
+										placeholder="Last Name"
+										value={lastname}
+										onChange={(e) => setLastName(e.target.value)}
+									/>
+								</div>
+								<button type="submit" className="btn btn-primary" disabled={loading}>
+									Submit
+								</button>
+								<p className="page-p">
+									Already have an account? <a href="/login">Login</a>
+								</p>
 							</form>
-							</div>
-							);
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	);
 						}
 
 export default Register;
