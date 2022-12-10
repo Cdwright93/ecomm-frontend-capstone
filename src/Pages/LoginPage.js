@@ -57,10 +57,11 @@ const Login = (props) => {
 				<p className="w-sym 2">
 					{randomizeWeirdSymbols(3)}
 				</p>
-				<button type="submit" disabled={loading}>
-					Login
-				</button>
-				{error && <p>{error}</p>}
+				<button disabled={loading} type="submit" className="login-btn">Login</button>
+				<p className="w-sym 3">
+					{randomizeWeirdSymbols(5)}
+				</p>
+				{error && <p className="error">{error}</p>}
 			</form>
 			</div>
 		</div>
