@@ -4,14 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useContent } from "../Hooks/Content";
 import { useAuth } from "../Hooks/Auth";
 
-const Checkout = (props) => (
-	<div>
-		<h3>Checkout</h3>
-		<p className="page-p">
-			Welcome to the chekcout page. This is a protected route. You must be
-			logged in
-		</p>
-	</div>
-);
+//at this point all i need to do is send a post request to the backend with the product id and the user id
+
+const Checkout = (props) => {
+	const {product, createCheckout} = useContent();
+	createCheckout().then((data) => {
+		window.location.href = data.url;
+	});
+};
 
 export default Checkout;

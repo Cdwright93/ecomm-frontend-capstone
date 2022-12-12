@@ -52,7 +52,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac bibendum qu
 						</p>
 						<div className="home-buttons">
 							<button className="home-button"onClick={() => navigate("/profile")}>Profile</button>
-							<button className="home-button"onClick={() => navigate("/order")}>Orders</button>
+							<button className="home-button"onClick={() => navigate("/products")}>Products</button>
 							<button className="home-button"onClick={() => logout()}>Logout</button>
 						</div>
 					</div>
