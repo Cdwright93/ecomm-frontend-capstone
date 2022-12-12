@@ -7,6 +7,8 @@ import { useAuth } from "../Hooks/Auth";
 const Products = (props) => {
 	const navigate = useNavigate();
 	const { products } = useContent();
+	const [product, setProduct] = useState({});
+	
 	return (
 		<div className="pageheader">
 			<div>
@@ -32,7 +34,7 @@ const Products = (props) => {
 					<img src={product.image} alt={product.name} className="product-image"/>
 					<p className="product-p">{product.description}</p>
 					<p className="product-p">${product.price}.00/month</p>
-					<button className='product-button'onClick={() => navigate(`/products/${product.id}`)}>
+					<button className='product-button'onClick={() => navigate(`/products/${product._id}`)}>
 						<p className='product-button-p'>See more</p>
 					</button>
 				</div>

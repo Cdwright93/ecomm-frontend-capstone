@@ -469,3 +469,29 @@
   color: white;
   text-shadow: 0 0 5px rgb(255, 234, 138);
 }
+
+.product-button-1 {
+  font-size: calc(1rem + .3vmin);
+  color: peachpuff;
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: inherit;
+  color: white;
+  border: 1px solid inherit;
+  position: relative;
+  z-index: 1;
+  bottom: -10rem;
+  left: 10rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.product-button-1:hover {
+  color: rgb(255, 234, 138);
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+  cursor: pointer;
+}

@@ -15,11 +15,17 @@ export const ContentProvider = ({ children }) => {
     const [shipping, setShipping] = useState(0);
     const [tax, setTax] = useState(0);
     const [total, setTotal] = useState(0);
+    const [product, setProduct] = useState({});
 
     const fetchProducts = async () => {
         const response = await fetch(`${urlEndpoint}/products`);
         const data = await response.json();
         setProducts(data);
+    }
+    const fetchProduct = async (id) => {
+        const response = await fetch(`${urlEndpoint}/products/${id}`);
+        const data = await response.json();
+        setProduct(data);
     }
 
     useEffect(() => {
@@ -77,7 +83,9 @@ export const ContentProvider = ({ children }) => {
             tax,
             setTax,
             total,
-            setTotal
+            setTotal,
+            product,
+            setProduct,
         }}>
             {children}
         </ContentContext.Provider>
