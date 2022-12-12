@@ -274,7 +274,7 @@
   border-radius: 1rem;
 }
 .page-h3 {
-  font-size: inherit;
+  font-size: 7rem;
   text-shadow: 0 0 5px rgb(255, 234, 138);
   display: flex;
   flex-direction: column;
@@ -377,20 +377,95 @@
   margin-bottom: 0;
   position: relative;
   z-index: 1;
-  top: -7rem;
-  left: -8rem;
+  top: -15rem;
+  left: -14rem;
   color: #cb7dff;
   text-shadow: 0 0 7px rgb(159 116 157);
 }
 .page-h1-bottom {
-  font-size: 10rem;
+  font-size: 20rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
   position: relative;
   z-index: -1;
   top: 30rem;
-  right: -54rem;
+  right: -73rem;
   color: #cb7dff;
   text-shadow: 0 0 3px rgb(255, 221, 188);
+}
+.profile-h3 {
+  font-size: calc(5rem + 1vmin);
+  text-shadow: 0 0 8px rgb(255, 234, 138);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  position: absolute;
+  z-index: 1;
+  color: peachpuff;
+  top: 16rem;
+  right: 55rem;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  top: 2rem;
+  right: 9rem;
+  width: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  color: white;
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+}
+.page-h4 {
+  font-size: calc(1.5rem + 1vmin);
+  text-shadow: 0 0 8px rgb(255, 234, 138);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  color: rgb(255, 255, 255);
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  text-decoration-color: rgb(255, 234, 138);
+}
+
+.profile-a {
+  font-size: calc(1rem + .3vmin);
+  color: peachpuff;
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  text-decoration: none;
+  color: rgb(255, 175, 175);
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+}
+.profile-a:hover {
+  color: rgb(255, 234, 138);
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+  cursor: pointer;
+}
+
+.profile-options {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  top: 2rem;
+  right: 9rem;
+  width: 100%;
+  color: white;
+  text-shadow: 0 0 5px rgb(255, 234, 138);
 }
