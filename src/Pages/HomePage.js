@@ -32,8 +32,9 @@ const Home = (props) => {
 	return (
 		<div className="pageheader">
 			<div className="symbol-decorations">
-				<h3 className="page-h1">{randomizeWeirdSymbols(4)}</h3>
-				<h3 className="page-h2">Home</h3>
+				<h3 className="home-h1">{randomizeWeirdSymbols(4)}</h3>
+				<h3 className="home-h2"
+				>Home</h3>
 				<h3 className="page-h1-bottom">{randomizeWeirdSymbols(4)}</h3>
 				{user ? (
 				<div className="home-header">

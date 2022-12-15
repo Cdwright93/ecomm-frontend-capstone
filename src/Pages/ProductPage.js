@@ -20,12 +20,24 @@ const Product = (props) => {
 				borderRadius: "10px",
 				padding: "1rem",
 			}}>
-				<div className="product__image">
+				<div className="product_image">
 					<h2 className="page-h3" style={{
 						position: "relative",
 						left: "19%",
+						fontSize: "4rem",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+						width: "100%",
+						marginTop: "1rem",
 					}}>{product.name}</h2>
-					<img src={product.image} alt={product.name} />
+					<img src={product.image} style={{
+						width: "50%",
+						height: "50%",
+						position: "relative",
+						left: "25%",
+						marginBottom: "1rem",
+					}} alt={product.name} />
 				</div>
 				<div className="product__details">
 					<p className="page-p">{product.description}</p>

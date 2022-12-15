@@ -47,15 +47,15 @@ const Profile = (props) => {
 				<a className="profile-a" style={{
 					fontSize: "1rem",
 					position: "relative",
-					top: "-10.5rem",
-					left: "2rem",
+					top: "-2rem",
+					left: "6rem",
 				}}>change your email address</a>
 				<br/>
 				<a className="profile-a" style={{
 					fontSize: "1rem",
 					position: "relative",
-					top: "-10.9rem",
-					left: "2rem",
+					top: "-2rem",
+					left: "6rem",
 				}}>change your address</a>
 			</div>
 	</div>
