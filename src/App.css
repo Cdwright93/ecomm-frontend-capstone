@@ -475,23 +475,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin: 0;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-  background-color: inherit;
-  color: white;
-  border: 1px solid inherit;
-  position: relative;
-  z-index: 1;
-  bottom: 3rem;
-  left: 14rem;
-  padding: 1rem;
-  border-radius: 1rem;
+  text-decoration: none;
+  color: rgb(255, 175, 175);
+  text-shadow: 0 0 5px rgb(255, 234, 138);
+  background-color: transparent;
 }
+
+
 .product-button-1:hover {
   color: rgb(255, 234, 138);
   text-shadow: 0 0 5px rgb(255, 234, 138);
   cursor: pointer;
+  border-radius: 1rem;
+  scale: 2.1;
+  transition: 0.5s;
 }
 .home-h2 {
   font-size: 9.8rem;
@@ -546,4 +543,19 @@
   position: relative;
   z-index: 1;
   color: peachpuff;
+}
+ 
+.filler-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+  color: peachpuff;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0.5;
 }
